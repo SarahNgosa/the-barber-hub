@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap");
+@import "tailwindcss";
+
+/* Our brand: colours and fonts become Tailwind classes */
+@theme {
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+  --color-chalk: #f3f3f1;
+  --color-graphite: #1a1a1a;
+  --color-steel: #9a9a9a;
+  --color-slate: #555555;
+  --font-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Wide, heavy headings: our signature look */
+h1, h2, h3 {
+  font-variation-settings: "wdth" 125;
+  font-weight: 800;
+  line-height: 1.02;
+}
