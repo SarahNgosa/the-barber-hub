@@ -18,3 +18,7 @@ h1, h2, h3 {
   font-weight: 800;
   line-height: 1.02;
 }
+/* Custom Tailwind class: className="wide" stretches Archivo wide */
+@utility wide {
+  font-variation-settings: "wdth" 125;
+}
