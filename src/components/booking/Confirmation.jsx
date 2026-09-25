@@ -4,6 +4,7 @@ import { getBarber } from '../../data/barbers'
 import { SHOP } from '../../data/shop'
 import { formatDuration } from '../../lib/time'
 import { longDate, formatTime } from '../../lib/dates'
+import CalendarButtons from './CalendarButtons'
 
 export default function Confirmation({ booking, onBookAnother }) {
   const service = getService(booking.serviceId)
@@ -45,7 +46,7 @@ export default function Confirmation({ booking, onBookAnother }) {
         </dl>
       </div>
 
-      {/* Calendar buttons go here in Step 7 */}
+      <CalendarButtons booking={booking} />
 
       <p className="mt-8">
         Need to change or cancel? Call{' '}
