@@ -13,12 +13,20 @@
 }
 
 /* Wide, heavy headings: our signature look */
-h1, h2, h3 {
-  font-variation-settings: "wdth" 125;
-  font-weight: 800;
-  line-height: 1.02;
+@layer base {
+  h1, h2, h3 {
+    font-variation-settings: "wdth" 125;
+    font-weight: 800;
+    line-height: 1.02;
+  }
 }
-/* Custom Tailwind class: className="wide" stretches Archivo wide */
-@utility wide {
-  font-variation-settings: "wdth" 125;
-}
+
+/* A centred page container we can reuse everywhere */
+@utility wrap {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+  @media (width >= 48rem) {
+    padding-inline: 2.5rem;
+  }
+} 
