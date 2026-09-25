@@ -1,7 +1,11 @@
 import { useState } from 'react'
 
-export default function Photo({ src, alt, className = '', priority = false }) {
+// hoverColor: inside a `group`, the photo turns to colour and zooms in slightly on hover
+export default function Photo({ src, alt, className = '', priority = false, hoverColor = false }) {
   const [failed, setFailed] = useState(false)
+  const hover = hoverColor
+    ? 'transition duration-700 ease-out group-hover:scale-[1.04] group-hover:grayscale-0'
+    : ''
 
   return (
     <div className={`relative overflow-hidden bg-graphite ${className}`}>
@@ -21,7 +25,7 @@ export default function Photo({ src, alt, className = '', priority = false }) {
           fetchPriority={priority ? 'high' : 'auto'}
           decoding="async"
           onError={() => setFailed(true)}
-          className="absolute inset-0 size-full object-cover grayscale contrast-[1.08]"
+          className={`absolute inset-0 size-full object-cover grayscale contrast-[1.08] ${hover}`}
         />
       )}
     </div>

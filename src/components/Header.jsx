@@ -13,6 +13,16 @@ const links = [
 export default function Header() {
   const [open, setOpen] = useState(false)
   const { pathname } = useLocation()
+  const [scrolled, setScrolled] = useState(false)
+
+  // On the home page the header sits see-through over the hero photo until you scroll
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  const transparent = pathname === '/' && !scrolled && !open
 
   // Close the mobile menu whenever the page changes
   useEffect(() => { setOpen(false) }, [pathname])
@@ -29,7 +39,11 @@ export default function Header() {
   }, [open])
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-ink text-paper">
+    <header
+      className={`sticky top-0 z-50 border-b text-paper transition-colors duration-300 ${
+        transparent ? 'border-transparent bg-transparent' : 'border-white/10 bg-ink'
+      }`}
+    >
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 md:px-10">
         <Link to="/" aria-label="The Barber Hub, home">
           <Logo />
