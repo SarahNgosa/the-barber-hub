@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router'
 import Header from './Header'
+import Footer from './Footer'
 
 export default function Layout() {
   const { pathname } = useLocation()
@@ -17,7 +18,7 @@ export default function Layout() {
       <main id="main">
         <Outlet />
       </main>
-      {/* The footer goes here in Step 3 */}
+        <Footer />
     </>
   )
 }
