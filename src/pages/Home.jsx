@@ -6,8 +6,10 @@ import ServiceRow from '../components/ServiceRow'
 import BarberCard from '../components/BarberCard'
 import { SERVICES } from '../data/Services'
 import { BARBERS } from '../data/barbers'
-import { HOURS, HOURS_SUMMARY } from '../data/shop'
-import { formatHour, getOpenStatus, sastNow } from '../lib/time'
+
+import {getOpenStatus} from '../lib/time'
+
+import HoursTable from '../components/HoursTable'
 
 const heroLines = ['Sharp', 'cuts.', 'Clean fades.']
 
@@ -25,12 +27,14 @@ const reviews = [
 
 export default function Home() {
   const status = getOpenStatus()
-  const today = sastNow().getDay()
+  
   const popular = SERVICES.filter((s) => s.popular)
 
   return (
     <>
       {/* HERO */}
+      <title>The Barber Hub | Barber Shop in Braamfontein, Johannesburg</title>
+<meta name="description" content="Modern barber shop in Braamfontein, Johannesburg. Fades, scissor cuts, beard trims and hot towel shaves. Book online in under a minute." />
       <section className="bg-ink text-paper">
         <div className="grid lg:min-h-[min(86vh,760px)] lg:grid-cols-[1.1fr_0.9fr]">
           <div className="flex flex-col justify-center px-5 py-14 md:px-10 lg:py-24 lg:pl-[max(2.5rem,calc((100vw_-_80rem)/2_+_2.5rem))]">
@@ -151,22 +155,7 @@ export default function Home() {
           <p className="mt-5 max-w-xl text-lg">
             73 Juta Street, Braamfontein. Two minutes' walk from the Gautrain bus stop, with street parking outside.
           </p>
-          <table className="mt-8 w-full max-w-md" aria-label="Opening hours">
-            <tbody>
-              {HOURS_SUMMARY.map(({ label, days }) => {
-                const hours = HOURS[days[0]]
-                const isToday = days.includes(today)
-                return (
-                  <tr key={label} className={`border-b border-black/10 ${isToday ? 'font-extrabold' : ''}`}>
-                    <td className="py-3">{label}{isToday && ' (today)'}</td>
-                    <td className="py-3 text-right font-semibold">
-                      {hours ? `${formatHour(hours[0])} to ${formatHour(hours[1])}` : 'Closed'}
-                    </td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
+            <HoursTable className="mt-8" />
           <div className="mt-8 flex flex-wrap gap-3">
             <Button to="/book">Book now</Button>
             <Button to="/contact" variant="outlineDark">Directions &amp; contact</Button>
