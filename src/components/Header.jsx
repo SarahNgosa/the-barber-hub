@@ -10,19 +10,22 @@ const links = [
   { to: '/contact', label: 'Contact' },
 ]
 
+// Pages whose hero has a background photo (see the image prop on PageHero)
+const PHOTO_HERO_PAGES = ['/', '/services', '/about', '/contact']
+
 export default function Header() {
   const [open, setOpen] = useState(false)
   const { pathname } = useLocation()
   const [scrolled, setScrolled] = useState(false)
 
-  // On the home page the header sits see-through over the hero photo until you scroll
+  // On pages with a photo hero the header sits see-through over it until you scroll
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-  const transparent = pathname === '/' && !scrolled && !open
+  const transparent = PHOTO_HERO_PAGES.includes(pathname) && !scrolled && !open
 
   // Close the mobile menu whenever the page changes
   useEffect(() => { setOpen(false) }, [pathname])

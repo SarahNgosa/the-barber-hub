@@ -10,7 +10,7 @@ export default function Services() {
       <title>Services &amp; Prices | The Barber Hub</title>
       <meta name="description" content="Haircuts, skin fades, beard trims, hot towel shaves and packages at The Barber Hub, Braamfontein. Prices in Rand, VAT included." />
 
-      <PageHero title="Services & prices">
+      <PageHero title="Services & prices" label="Services" image="/images/chair.webp" imageAlt="Barber chair at The Barber Hub">
         All prices are in South African Rand and include VAT. Pay by card, cash or SnapScan after your cut.
       </PageHero>
 

@@ -4,7 +4,6 @@ import Photo from '../components/Photo'
 import Pole from '../components/Pole'
 import Reveal from '../components/Reveal'
 import ServiceRow from '../components/ServiceRow'
-import BarberCard from '../components/BarberCard'
 import HoursTable from '../components/HoursTable'
 import { SERVICES } from '../data/Services'
 import { BARBERS } from '../data/barbers'
@@ -143,21 +142,6 @@ export default function Home() {
           <Reveal delay={0.2}>
             <Button to="/book" variant="light" arrow className="mt-12">Start booking</Button>
           </Reveal>
-        </div>
-      </section>
-
-      {/* BARBERS */}
-      <section className="wrap py-20 md:py-28">
-        <Reveal className="mb-10 flex flex-wrap items-end justify-between gap-4">
-          <h2 className="text-4xl md:text-5xl">Meet the barbers</h2>
-          <Button to="/about" variant="outlineDark" size="sm" arrow>Our story</Button>
-        </Reveal>
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-          {BARBERS.map((b, i) => (
-            <Reveal key={b.id} delay={i * 0.08}>
-              <BarberCard barber={b} />
-            </Reveal>
-          ))}
         </div>
       </section>
 

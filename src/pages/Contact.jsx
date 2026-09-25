@@ -13,7 +13,7 @@ export default function Contact() {
       <title>Contact &amp; Directions | The Barber Hub</title>
       <meta name="description" content="Find The Barber Hub at 73 Juta Street, Braamfontein, Johannesburg. Phone, WhatsApp, email and opening hours." />
 
-      <PageHero title="Contact us">
+      <PageHero title="Contact us" image="/images/beard.webp" imageAlt="Barber trimming a client's beard">
         <OpenStatus />
       </PageHero>
 

@@ -16,7 +16,7 @@ export default function About() {
       <title>About Us &amp; Our Barbers | The Barber Hub</title>
       <meta name="description" content="How The Barber Hub grew from one chair on Juta Street to Braamfontein's favourite barber shop. Meet our barbers." />
 
-      <PageHero title="One chair to a hub">
+      <PageHero title="One chair to a hub" label="About" image="/images/interior.webp" imageAlt="Inside The Barber Hub on Juta Street">
         How a single chair on Juta Street became Braamfontein's busiest barber shop.
       </PageHero>
 
